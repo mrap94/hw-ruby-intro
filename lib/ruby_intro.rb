@@ -28,7 +28,32 @@ end
 
 def sum_to_n? arr, n
   # YOUR CODE HERE
-  !!arr.find{|e| arr.include?(n-e)}
+  numSum = 0
+  for i in arr
+    for j in arr
+      unless arr.at(i) == arr.at(j) then
+          if arr.at(i) == nil || arr.at(j) == nil
+            return false
+          end
+          if arr.at(i) == 0
+              numSum = 0 +arr.at(j)
+              if numSum = n
+                return true
+              end
+          end
+          if arr.at(j) == 0
+            numSum = 0 + arr.at(i)
+            if numSum = n
+              return true
+            end
+          end
+          numSum = arr.at(i) + arr.at(j)
+          if numSum == n
+            return true
+          end
+      end
+    end
+  end
   return false
 end
 # Part 2
