@@ -28,34 +28,8 @@ end
 
 def sum_to_n? arr, n
   # YOUR CODE HERE
-  numSum = 0
-  for i in arr
-    for j in arr
-      unless arr.at(i) == arr.at(j) then
-          if arr.at(i) == nil || arr.at(j) == nil
-            return false
-          end
-          if arr.at(i) == 0
-              numSum = 0 +arr.at(j)
-              if numSum = n
-                return true
-              end
-          end
-          if arr.at(j) == 0
-            numSum = 0 + arr.at(i)
-            if numSum = n
-              return true
-            end
-          end
-          numSum = arr.at(i) + arr.at(j)
-          if numSum == n
-            return true
-          end
-      end
-    end
-  end
+  !!arr.find{|e| arr.include?(n-e)}
   return false
-
 end
 # Part 2
 
@@ -96,7 +70,41 @@ end
 # Part 3
 class BookInStock
 # YOUR CODE HERE
-  def initialize()
-
+  def initialize(isbn = "",price = 0.0)
+    if isbn.to_s.empty?
+      raise ArgumentError.new("The isbn is Empty")
+    elsif price <= 0
+      raise ArgumentError.new("Price is invalid")
+    else
+      @isbn = isbn
+      @price = price
+    end
   end
+  def isbn
+    if isbn.to_s.empty?
+      raise ArgumentError.new("The isbn is Empty")
+    else
+      @isbn
+    end
+  end
+  def isbn=(isbn)
+    if isbn.to_s.empty?
+      raise ArgumentError.new("Price is invalid")
+    else
+      @isbn = isbn
+    end
+  end
+  def price
+    @price
+  end
+  def price=(price)
+    @price = price
+  end
+  def price_as_string
+    #valToTwo = number_with_precision(price,precision: 2)
+    stringVal = sprintf('%.2f', price)
+    stringFinalVal = "$" << stringVal
+    return stringFinalVal
+  end
+
 end
