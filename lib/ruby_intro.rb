@@ -28,25 +28,75 @@ end
 
 def sum_to_n? arr, n
   # YOUR CODE HERE
-  
-end
+  numSum = 0
+  for i in arr
+    for j in arr
+      unless arr.at(i) == arr.at(j) then
+          if arr.at(i) == nil || arr.at(j) == nil
+            return false
+          end
+          if arr.at(i) == 0
+              numSum = 0 +arr.at(j)
+              if numSum = n
+                return true
+              end
+          end
+          if arr.at(j) == 0
+            numSum = 0 + arr.at(i)
+            if numSum = n
+              return true
+            end
+          end
+          numSum = arr.at(i) + arr.at(j)
+          if numSum == n
+            return true
+          end
+      end
+    end
+  end
+  return false
 
+end
 # Part 2
 
 def hello(name)
   # YOUR CODE HERE
+  value = "Hello, "
+  return value << name
 end
 
 def starts_with_consonant? s
   # YOUR CODE HERE
+  if s.to_s.empty?
+    return false
+  end
+  if s.start_with?(s[/[a-zA-Z]+/]) #Makes sure it starts with a string
+    unless s.start_with?('a','e','i','o','u','A','E','I','O','U') then
+      return true
+    end
+  end
+  return false
 end
 
 def binary_multiple_of_4? s
   # YOUR CODE HERE
+    if s.to_s.empty?
+      return false
+    end
+    if s.scan(/\D/).empty? #scans to make sure it's all digits
+      lastTwo = s[-2..-1]
+      num = lastTwo.to_i
+      if num == 00
+        return true
+      end
+    end
+    return false
 end
 
 # Part 3
-
 class BookInStock
 # YOUR CODE HERE
+  def initialize()
+
+  end
 end
